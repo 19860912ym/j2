@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/Table.css">
+	<script src="/javascripts/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+	<form method="POST" action="/task7">
+		<table>
+			<thead>
+				<tr>
+					<td>用户名<span class="upBtn"></span><span class="downBtn"></td>
+					<td>密码<span class="upBtn"></span><span class="downBtn"></td>
+						<td>操作<span class="upBtn"></span></td>
+				</tr>
+			</thead>
+			<tbody id='show'>
+				<% for(o of data) {%>
+				<tr>
+					<td><%= o.username%></td>
+					<td><%= o.password%></td>
+					<td><input type="button"  value="新增"  class='new' />
+						<input type="button" value="修改" class='update'   />
+						<input type="button"  value="删除"  class='del' onclick="location.href='/a?id=<%=o.id%>'"/></td>
+				</tr>
+				
+				<%}%>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td><input type="button"  value="新增"  class='new' onclick="location.href='/add'"/></td>
+					<td colspan="6"><input type="button" id="nextPage"  value="下一页" ></td>
+				</tr>
+			</tfoot>	
+		</table>
+	</form>
+	<script type="text/javascript" src="/javascripts/Table.js"></script>
+	<script type="text/javascript" src="/javascripts/jq.js"></script>
+</body>
+</html>

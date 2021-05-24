@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>智秀的页面</title>
+    <link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link href="/fontAwesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/jquery-1.12.4.min.js"></script>
+    <script src="/javascripts/index.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div class="backimg"><img src="/images/秀19.jpg"></div>
+    <div class="logo"><span></span><img src="/images/00002637.png"></div>
+</header>
+
+<nav>
+    <div class="menu">
+        <a href="/" class="focus">首页</a>
+        <a href="/">图库</a>
+        <a href="/?category={{cate.id}}" class="focus">视频</a>
+        <a href="/?category={{cate.id}}">直拍</a>
+    </div>
+</nav>
+<main class="clear">
+    <div class="mainLeft">
+        
+    </div>
+
+    <div class="mainRight">
+
+
+<!--         
+        <div class="rightBox" id="userInfo">
+            <div class="title"><span>用户信息</span></div>
+            <p><span class="colDark">{{userInfo.username}}</span></p>
+
+            {% if userInfo.isAdmin %}
+            <p>
+                <span class="colDanger">你好，管理员！</span>
+                <a href="/admin">进入管理</a>
+            </p>
+            {% else %}
+            <p><span class="colDanger">你好，欢迎光临我的博客！</span></p>
+            {% endif %}
+
+            <p><span class="colDark"><a href="javascript:;" id="logout">退出</a></span></p>
+        </div> -->
+        <form action="/login" method="post">
+            <div class="rightBox" id="loginBox">
+                <div class="title"><span>个人主页</span></div>
+                <p class="colWarning textCenter"></p>
+            </div>
+        </form>
+
+</main>
+
+<div class="copyright textCenter">Copyright © miaov.com 版权所有 | 京ICP备08102442号</div>
+</body>
+</html>
