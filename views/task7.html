@@ -13,6 +13,9 @@
 				<tr>
 					<td>用户名<span class="upBtn"></span><span class="downBtn"></td>
 					<td>密码<span class="upBtn"></span><span class="downBtn"></td>
+					<td>邮箱<span class="upBtn"></span><span class="downBtn"></td>
+					<td>电话<span class="upBtn"></span><span class="downBtn"></td>
+					<td>性别<span class="upBtn"></span><span class="downBtn"></td>
 						<td>操作<span class="upBtn"></span></td>
 				</tr>
 			</thead>
@@ -21,6 +24,9 @@
 				<tr>
 					<td><%= o.username%></td>
 					<td><%= o.password%></td>
+					<td><%= o.email%></td>
+					<td><%= o.phone%></td>
+					<td><%= o.sex%></td>
 					<td><input type="button"  value="新增"  class='new' />
 						<input type="button" value="修改" class='update'   />
 						<input type="button"  value="删除"  class='del' onclick="location.href='/a?id=<%=o.id%>'"/></td>

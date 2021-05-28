@@ -12,7 +12,7 @@
 <body>
 
 <header>
-    <div class="backimg"><img src="/images/IMG_0293.JPG"></div>
+    <div class="backimg"><img src="/images/合.jpg"></div>
     <div class="logo"><span></span><img src="/images/00002637.png"></div>
 </header>
 
@@ -63,8 +63,17 @@
             <div class="rightBox" id="registerBox" style="display: none;" >
                 <div class="title"><span>注册</span></div>
                 <div class="line"><span class="colDark">用户名：</span><input name="username" type="text" /></div>
-                <div class="line"><span class="colDark">密码：</span><input name="password" type="password" /></div>
-                <div class="line"><span class="colDark">确认：</span><input name="repassword" type="password" /></div>
+                <div class="line" ><span class="colDark">密码：</span><input name="password" type="password" /></div>
+                <div class="line" ><span class="colDark">确认：</span><input name="repassword" type="password" /></div>
+                <div class="line" ><span class="colDark">邮箱：</span><input name="email" type="email" /></div>
+                <div class="line" ><span class="colDark">电话：</span><input name="phone" type="phone" /></div>
+                <div class="line"><span class="colDark">性别：</span>
+                    <input type="sex" list="sex" name="sex" placeholder="性别">
+                    <datalist id="sex">
+                    <option>男</option>
+                    <option>女</option>
+                </datalist>
+                </div>
                 <div class="line"><span class="colDark"></span><button input type="submit">注 册</button></div>
                 <p class="textRight">已有账号？<a href="javascript:;" class="colMint">马上登录</a>　</p>
                 <p class="colWarning textCenter"></p>
@@ -81,5 +90,19 @@
 </main>
 
 <div class="copyright textCenter">Copyright © miaov.com 版权所有 | 京ICP备08102442号</div>
+<!-- <script>
+    function validate() {
+        var pwd1 = document.getElementById("pwd1").value;
+        var pwd2 = document.getElementById("pwd2").value;
+       if(pwd1 == pwd2) {
+         document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+         document.getElementById("submit").disabled = false;
+        }
+        else {
+         document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+          document.getElementById("submit").disabled = true;
+        }
+    }
+</script> -->
 </body>
 </html>

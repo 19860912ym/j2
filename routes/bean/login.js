@@ -1,8 +1,10 @@
 class Login{
-    constructor(username,password){
+    constructor(username,password,email,phone,sex){
         this.username=username;
         this.password=password;
-
+        this.email=email;
+        this.phone=phone;
+        this.sex=sex;
     }
 }
 
