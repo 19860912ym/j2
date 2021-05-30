@@ -85,10 +85,11 @@ router.get('/task7', function(req, res, next) {
 
 
 router.post('/search',(req,res)=>{
-    connection.query("select * from login where username=？ or email=?",[login.username,login.email],(err,result,fields) => {
-    res.render('search',{data:result});
+    connection.query("select * from login where username=? or email=?",[req.body.username,req.body.email],(err,result,fields) => {
+    
     });
   }) ;
+
 
 router.post('/rightBox',(req,res)=>{
     let login= new Login(req.body.username,req.body.password,req.body.email,req.body.phone,req.body.sex)
@@ -166,8 +167,7 @@ router.post('/rightBox',(req,res)=>{
           if(err){
             console.log(err.message)
             return
-          }    
-          console.log(result)    
+          }       
           res.redirect('/task7')
   
   })
@@ -189,6 +189,17 @@ router.post('/rightBox',(req,res)=>{
         throw err
       }else{
         res.redirect('task7')
+      }
+    })
+  })
+
+  router.post('/seek',(req,res)=>{
+    connection.query("select * from login where username='"+req.body.searchValue+"'",(err,data)=>{
+      if(err){
+        throw err
+      }
+      if(data){
+        res.json({user:data})
       }
     })
   })

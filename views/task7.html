@@ -7,8 +7,8 @@
 	<script src="/javascripts/jquery-1.12.4.min.js"></script>
 </head>
 <body>
-	<form action="/search" method="POST">
-		<input type="title" placeholder="搜索"/>
+	<form action="/search" method="POST" class="searchForm">
+		<input type="title" placeholder="搜索" class="searchInput" />
 		<input type="submit"/>
 	</form>
 	<form method="POST" action="/task7">
@@ -23,7 +23,7 @@
 						<td>操作<span class="upBtn"></span></td>
 				</tr>
 			</thead>
-			<tbody id='show'>
+			<tbody id='show' class="tbody">
 				<% for(o of data) {%>
 				<tr>
 					<td><%= o.username%></td>
@@ -52,6 +52,32 @@
 		$('.update').click(function(){
 		let id = $(this).attr('rel')
 		window.location.href = "/new?id="+id+""
+		})
+		$('.searchForm').on('submit',function(e){
+			e.preventDefault()
+			let searchValue = $('.searchInput').val()
+			$.ajax({
+				type:'post',
+				url:"/seek",
+				data:{searchValue:searchValue},
+				success:function(data){
+					let content;
+					for(let i = 0;i<data.user.length;i++){
+						content+=`<tr>
+					<td>${data.user[i].username}</td>
+					<td>${data.user[i].password}</td>
+					<td>${data.user[i].email}</td>
+					<td>${data.user[i].phone}</td>
+					<td>${data.user[i].sex}</td>
+					<td><input type="button"  value="新增"  class='new' />
+						<input type="button" value="修改" class='update' rel = '${data.user[i].id}'  />
+						<input type="button"  value="删除"  class='del' onclick="location.href='/a?id=${data.user[i].id}'"/></td>
+				</tr>
+						`
+					}
+					$('.tbody').html(content)
+				}
+			})
 		})
 	</script>
 </body>
