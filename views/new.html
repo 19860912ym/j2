@@ -1,0 +1,30 @@
+   
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/add.css" />
+</head>
+<body>
+    <div class="aaa">
+        <h1 style="color: darkgray;">管理员修改系统</h1>
+        <form action="/new" method="post">
+            <input type="hidden" value="<%=data.id%>" name = "id">
+            <input type="text" name="username" placeholder="用户名" value="<%=data.username%>">
+            <br/>
+            <input type="password" name="password" placeholder="密码" value="<%=data.password%>"/>
+            <br/>
+            <input type="email" name="email" placeholder="邮箱" value="<%=data.email%>"/>
+            <br/>
+            <input type="phone" name="phone" placeholder="电话" value="<%=data.phone%>"/>
+            <br/>
+            <input type="submit" value="提交"/>
+        </form>
+    </div>
+</body>
+</html>

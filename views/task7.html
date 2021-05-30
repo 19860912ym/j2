@@ -7,6 +7,10 @@
 	<script src="/javascripts/jquery-1.12.4.min.js"></script>
 </head>
 <body>
+	<form action="/search" method="POST">
+		<input type="title" placeholder="搜索"/>
+		<input type="submit"/>
+	</form>
 	<form method="POST" action="/task7">
 		<table>
 			<thead>
@@ -28,7 +32,7 @@
 					<td><%= o.phone%></td>
 					<td><%= o.sex%></td>
 					<td><input type="button"  value="新增"  class='new' />
-						<input type="button" value="修改" class='update'   />
+						<input type="button" value="修改" class='update' rel = '<%= o.id%>'  />
 						<input type="button"  value="删除"  class='del' onclick="location.href='/a?id=<%=o.id%>'"/></td>
 				</tr>
 				
@@ -44,5 +48,11 @@
 	</form>
 	<script type="text/javascript" src="/javascripts/Table.js"></script>
 	<script type="text/javascript" src="/javascripts/jq.js"></script>
+	<script>
+		$('.update').click(function(){
+		let id = $(this).attr('rel')
+		window.location.href = "/new?id="+id+""
+		})
+	</script>
 </body>
 </html>

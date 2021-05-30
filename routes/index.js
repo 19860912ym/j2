@@ -81,6 +81,15 @@ router.get('/task7', function(req, res, next) {
  }) ;
  
 });
+
+
+
+router.post('/search',(req,res)=>{
+    connection.query("select * from login where username=？ or email=?",[login.username,login.email],(err,result,fields) => {
+    res.render('search',{data:result});
+    });
+  }) ;
+
 router.post('/rightBox',(req,res)=>{
     let login= new Login(req.body.username,req.body.password,req.body.email,req.body.phone,req.body.sex)
     connection.query("insert into login(username,password,email,phone,sex) value(?,?,?,?,?)",[login.username, login.password,login.email,login.phone,login.sex],(err,result,fields) => {
@@ -164,6 +173,25 @@ router.post('/rightBox',(req,res)=>{
   })
   })
 
+  router.get('/new',(req,res)=>{
+    connection.query("select * from login where id ="+req.query.id+"",function(err,data){
+      if(err){
+        throw err
+      }
+      if(data){
+        res.render('new',{data:data[0]})
+      }
+    })
+  })
+  router.post('/new',(req,res)=>{
+    connection.query("update login set username='"+req.body.username+"',password='"+req.body.password+"',email='"+req.body.email+"',phone='"+req.body.phone+"' where id ="+req.body.id+" ",(err)=>{
+      if(err){
+        throw err
+      }else{
+        res.redirect('task7')
+      }
+    })
+  })
 //   router.get('/b',(req,res)=>{
 //   let modSql = 'UPDATE account SET username = ?,password =  WHERE id = ?'
 // let modSqlParams = ['a', 'b','c',20]
