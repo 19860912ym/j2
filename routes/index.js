@@ -184,6 +184,7 @@ router.post('/rightBox',(req,res)=>{
         });
     }) ;
   
+    
   router.get('/a',(req,res)=>{
     let delSql = 'delete FROM login where ID=?'
     let data =req.query;
