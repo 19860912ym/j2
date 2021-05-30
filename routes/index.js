@@ -17,6 +17,10 @@ var connection = mysql.createConnection({
   database : 'myy'
 });
 
+router.get("/guanli",(req,res)=>{
+    res.render('guanli')
+  })
+  
 
 router.get("/rightBox",(req,res)=>{
     res.render('insert')
@@ -84,11 +88,11 @@ router.get('/task7', function(req, res, next) {
 
 
 
-router.post('/search',(req,res)=>{
-    connection.query("select * from login where username=? or email=?",[req.body.username,req.body.email],(err,result,fields) => {
+// router.post('/search',(req,res)=>{
+//     connection.query("select * from login where username=? or email=?",[req.body.username,req.body.email],(err,result,fields) => {
     
-    });
-  }) ;
+//     });
+//   }) ;
 
 
 router.post('/rightBox',(req,res)=>{
@@ -128,6 +132,26 @@ router.post('/rightBox',(req,res)=>{
               if(result.length > 0) {
 
                   res.redirect("/mm");
+              }
+              else {
+                res.send("失败");
+              }
+          });
+  })
+
+  var compar = new Array(10);
+
+  router.post('/guanli',(req, res) => {
+  
+          compar[0] = req.body.username;
+          compar[1] = req.body.password;
+
+          let sql = 'select * from guanli where name=? and password=? '
+         
+          connection.query(sql,compar,function (err, result) {
+              if(result.length > 0) {
+
+                  res.redirect("/task7");
               }
               else {
                 res.send("失败");
@@ -184,7 +208,7 @@ router.post('/rightBox',(req,res)=>{
     })
   })
   router.post('/new',(req,res)=>{
-    connection.query("update login set username='"+req.body.username+"',password='"+req.body.password+"',email='"+req.body.email+"',phone='"+req.body.phone+"' where id ="+req.body.id+" ",(err)=>{
+    connection.query("update login set username='"+req.body.username+"',password='"+req.body.password+"',email='"+req.body.email+"',phone='"+req.body.phone+"',sex='"+req.body.sex+"' where id ="+req.body.id+" ",(err)=>{
       if(err){
         throw err
       }else{

@@ -12,15 +12,11 @@
 </head>
 <body>
     <div class="aaa">
-        <h1 style="color: darkgray;">管理员新增系统</h1>
-        <form action="/add" method="post">
+        <h1 style="color: darkgray;">管理员登陆系统</h1>
+        <form action="/guanli" method="post">
             <input type="text" name="username" placeholder="用户名">
             <br/>
             <input type="password" name="password" placeholder="密码"/>
-            <br/>
-            <input type="email" name="email" placeholder="邮箱" value="<%=data.email%>"/>
-            <br/>
-            <input type="phone" name="phone" placeholder="电话" value="<%=data.phone%>"/>
             <br/>
             <input type="submit" value="提交"/>
         </form>

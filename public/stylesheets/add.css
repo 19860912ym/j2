@@ -6,7 +6,7 @@ body{
 
 .aaa{
     width: 338px;
-    height: 374px;
+    height: 480px;
     padding: 13px;
     position: absolute;
     left: 50%;
@@ -21,6 +21,7 @@ body{
 .aaa input[type='email'],
 .aaa input[type='phone'],
 .aaa input[type='text'],
+.aaa input[type='sex'],
 .aaa input[type='password'] {
     border: 0;
     background: none;
