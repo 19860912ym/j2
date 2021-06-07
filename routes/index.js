@@ -94,6 +94,26 @@ router.get('/task7', function(req, res, next) {
 //     });
 //   }) ;
 
+// Login.findOne({
+//   username: username
+// }).then(function( userInfo ) {
+//   if ( userInfo ) {
+//       //表示数据库中有该记录
+//       responseData.code = 4;
+//       responseData.message = '用户名已经被注册了';
+//       res.json(responseData);
+//       return;
+//   }
+//   //保存用户注册的信息到数据库中
+//   var login = new Login({
+//       username: username,
+//       password: password
+//   });
+//   return login.save();
+// }).then(function(newUserInfo) {
+//   responseData.message = '注册成功';
+//   res.json(responseData);
+// });
 
 router.post('/rightBox',(req,res)=>{
     let login= new Login(req.body.username,req.body.password,req.body.email,req.body.phone,req.body.sex)
@@ -105,6 +125,7 @@ router.post('/rightBox',(req,res)=>{
       
     });
   }) ;
+
 
 //   var login = false
 //     if (Array.from(result).length == 0){
@@ -228,16 +249,5 @@ router.post('/rightBox',(req,res)=>{
       }
     })
   })
-//   router.get('/b',(req,res)=>{
-//   let modSql = 'UPDATE account SET username = ?,password =  WHERE id = ?'
-// let modSqlParams = ['a', 'b','c',20]
-// connection.query(modSql,modSqlParams,function (err, result) {
-//    if(err){
-//          console.log('[UPDATE ERROR] - ',err.message)
-//          return
-//    }
-//   console.log('UPDATE affectedRows',result.affectedRows)
-// })
-// })
   
 module.exports = router;
