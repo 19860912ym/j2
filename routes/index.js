@@ -16,11 +16,10 @@ var connection = mysql.createConnection({
   password : '19860912',
   database : 'myy'
 });
-
 router.get("/guanli",(req,res)=>{
     res.render('guanli')
   })
-  
+
 
 router.get("/rightBox",(req,res)=>{
     res.render('insert')
@@ -30,18 +29,21 @@ router.get("/rightBox",(req,res)=>{
       res.render('insert')
     })
 
-    router.get("/add",(req,res)=>{
-        res.render('add')
-      })
-      router.get("/choose",(req,res)=>{
-          res.render('choose')
-        })
-        router.get("/jisoo",(req,res)=>{
-            res.render('jisoo')
-          })
+router.get("/add",(req,res)=>{
+    res.render('add')
+  })
+
+router.get("/choose",(req,res)=>{
+    res.render('choose')
+  })
+  
+router.get("/jisoo",(req,res)=>{
+    res.render('jisoo')
+  })
+
 router.get("/mini",(req,res)=>{
-   res.render('mini')
-})
+    res.render('mini')
+  })
 
 router.get("/mm",(req,res)=>{
     res.render('mm')
@@ -126,6 +128,7 @@ router.post('/rightBox',(req,res)=>{
     });
   }) ;
 
+  
 
 //   var login = false
 //     if (Array.from(result).length == 0){
@@ -148,10 +151,13 @@ router.post('/rightBox',(req,res)=>{
           compar[1] = req.body.password;
 
           let sql = 'select * from login where username=? and password=? '
-         
+          // select * from login where username=? and password id=req.session.id
           connection.query(sql,compar,function (err, result) {
-              if(result.length > 0) {
-
+              if(result.length > 0) {               
+                console.log(result[0].id) 
+                req.session.user={
+                  id:result[0].id
+                };
                   res.redirect("/mm");
               }
               else {
@@ -159,6 +165,7 @@ router.post('/rightBox',(req,res)=>{
               }
           });
   })
+
 
   var compar = new Array(10);
 
@@ -182,11 +189,9 @@ router.post('/rightBox',(req,res)=>{
 
  
   router.get('/', function(_req, res, _next){
-  
-    connection.query("select * from tab_score",function(err,results,fields){
-      console.log(results);
+    connection.query("select * from tab_score ",function(err,results,fields){
+ 
       console.log("fields"+fields);
-   
       res.render("task7",{
         data:results
       })
@@ -249,5 +254,17 @@ router.post('/rightBox',(req,res)=>{
       }
     })
   })
-  
+
+  router.get('/self',(req,res)=>{
+    console.log(req.session.user.id)
+    connection.query("select * from login where id ="+req.session.user.id+"",function(err,data){
+      if(err){
+        throw err
+      }
+      if(data){
+        res.render('self',{data:data[0]})
+      }
+    })
+  })
+
 module.exports = router;

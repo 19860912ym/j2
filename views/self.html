@@ -1,0 +1,38 @@
+   
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/self.css" />
+    <script src="/javascripts/self.js"></script>
+</head>
+<body>
+    <div class="aaa">
+        <h1 style="color: darkgray;">个人中心</h1>
+        <form action="/selfs" method="post">
+            <div class="logo">
+                <img src="" style="border-radius: 50%;" id="userAvatar">
+                <canvas id="avatarCanvas" style="display:none"></canvas>
+            </div>
+            <input type="hidden" value="<%=data.id%>" name = "id">
+            <input type="text" name="username" placeholder="用户名" value="<%=data.username%>">
+            <br/>
+            <input type="email" name="email" placeholder="邮箱" value="<%=data.email%>"/>
+            <br/>
+            <input type="phone" name="phone" placeholder="电话" value="<%=data.phone%>"/>
+            <br/>
+            <input type="sex" name="sex" placeholder="性别" value="<%=data.sex%>"/>
+            <br/>
+            <a href="/jisoo"><input class="one" value="返回页面"/></a>
+            <a href="/bk"><input class="one" value="退出登陆"/></a>
+            <a><input  class="one" value="修改信息"/></a>
+        </form>
+    </div>
+</body>
+
+</html>
