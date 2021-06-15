@@ -9,16 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人中心</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/self.css" />
-    <script src="/javascripts/self.js"></script>
+   
 </head>
 <body>
     <div class="aaa">
         <h1 style="color: darkgray;">个人中心</h1>
-        <form action="/selfs" method="post">
-            <div class="logo">
-                <img src="" style="border-radius: 50%;" id="userAvatar">
-                <canvas id="avatarCanvas" style="display:none"></canvas>
-            </div>
+        <form action="/updateInfo" method="post">
+        <div class="logo"><img src="/images/up_img/<%=data.img%>" ></div>
             <input type="hidden" value="<%=data.id%>" name = "id">
             <input type="text" name="username" placeholder="用户名" value="<%=data.username%>">
             <br/>
@@ -30,9 +27,15 @@
             <br/>
             <a href="/jisoo"><input class="one" value="返回页面"/></a>
             <a href="/bk"><input class="one" value="退出登陆"/></a>
-            <a><input  class="one" value="修改信息"/></a>
+            <a><input type="submit" class="one" value="修改信息"/></a>
         </form>
     </div>
+    <form action="/uploadImg" method="POST" enctype="multipart/form-data">
+    <div class="bbb">
+        <input type="file" name="file0" id="file0" accept="image/*" /> 
+        <input type="submit" class="queren"  href="javascript:" id="but" value="保存头像"> 
+    </div>
+</form>
 </body>
 
 </html>

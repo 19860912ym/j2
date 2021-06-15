@@ -4,11 +4,11 @@ body{
     background: #6284a5
 }
 .logo{
-    width:200px; 
-    height:200px; 
-    border-radius:50%; 
-    overflow:hidden;
-    margin-left: 10px;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 4px auto;
 }
 .logo img{
     width: 100%;
@@ -17,13 +17,13 @@ body{
 
 .aaa{
     width: 338px;
-    height: 580px;
+    height: 620px;
     padding: 13px;
     position: absolute;
     left: 50%;
     top: 50%;
     margin-left: -200px;
-    margin-top: -200px;
+    margin-top: -320px;
 
     background-color:lightblue;
     border-radius: 10px;
@@ -37,7 +37,7 @@ body{
     border: 0;
     background: none;
     display: block;
-    margin: -3px auto;
+    margin: 4px auto;
     text-align: center;
     border: 2px solid #3498db;
     padding: 14px 10px;
@@ -55,6 +55,34 @@ body{
     border: 2px solid greenyellow;
     padding: 14px 10px;
     width: 100px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.bbb{
+    width: 338px;
+    height: 120px;
+    padding: 13px;
+    position: absolute;
+    left: 50%;
+    top: 145%;
+    margin-left: -200px;
+    margin-top: -320px;
+    background-color:lightblue;
+    border-radius: 10px;
+    text-align: center;
+}
+.bbb input[type='file'],
+.bbb input[type='submit'] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 4px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
     outline: none;
     color: white;
     border-radius: 24px;
